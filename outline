@@ -1,0 +1,23 @@
+- wrong title (sorry)
+- this is ETL storage, just to be for-warned.
+- problem
+-- our schema sucked
+--- source => diffrent DB for 'same' info
+---- cascade lookups
+---- data gaps
+- goal
+-- single location
+-- source every data point
+=> over normalize everything
+- pros!
+-- reports, cake!
+-- debugging data, cake!
+-- specialized data use, cake!
+- cons!
+-- slow! to read from
+--- SOLUTION: summary tables currently, possibly KV store down the road
+--- HIDDEN PRO: abstraction for reads means you can bomb your data (2 day alter table, sure!)
+-- complex structure => staff confusion
+--- SOLUTION: abstract everything to code (hello ORM)
+--- HIDDEN PRO: abstraction means you are free to change schema at will.
+
