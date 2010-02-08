@@ -1,0 +1,27 @@
+= Completely vertical versonable schema = 
+
+== why ==
+
+* Many sources
+** varying levels of trust
+** trust can change at a later date
+** need to have the ability to slice out entire sources
+* different ways to look at the data.
+
+== advantages ==
+
+* source every 'cell'
+* trust for every 'cell'
+
+== disadvantage ==
+
+* not a 'normal' looking schema
+** requires traning
+** helps to abstract the crazyness (code)
+* slow slow slow
+** requires the use of summary tables to be useful (not the worst thing but yet another layer)
+
+
+
+
+Talk to the county library see if they have any ideas on storing data and possibly see about sharing data?
