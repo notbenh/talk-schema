@@ -50,35 +50,37 @@
 <html:textarea id="builtinCode" style="visibility: collapse">
 TITLE::adventure Normal
 GLOBAL-SIZE::9
+<!--
+Over Normalization from a developers point of view.
+
+Ben Hengst works for Powells.com and has been involved in some in house restructuring. This talk will revolve around
+what works and what doesn't, code and people problems that have been encountered and how to dig your self out.
+-->
 normalization
 
 ----
-or my DB adventure
-
-----
-bad beginings
+old
 <!-- WHAT WAS THERE BEFORE -->
 
 ----
 no consistancy
+<!-- Case changes -->
 
 ----
-multiple points of input
-
-----
-many points of output
+multiple layers of history
+<!-- example author vs contribuitor -->
 
 ----
 many diffrent usecases
+<!--
 
-----
 4+ level cascade
 - Stock
 - WLN + powells
 - BookScripts
 - WLN - powells
 - Title
-
+-->
 ----
 <!-- START TO EXPLAIN WHAT STEP HAVE BEEN TAKEN TO MOVE THINGS TO THE NEW SYSTEM -->
 
