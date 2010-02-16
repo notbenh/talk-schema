@@ -1,3 +1,69 @@
+overnormalization
+lets back up and set up a foundation
+like most places over time, your schemas become a mess.
+we had many generations of many diffrent attempts at cleaning things up, but there was still cruft.
+Most of the cruft was due to the tables being so large and live so you can't alter them.
+example: author->contributor
+to make matters worse books are odd in that the unique id is a combo-key for title+pub+binding+edition
+resulted in a layout where entire schemas were being filled by completely diffrent processes
+example: title cascade
+This only highlighted a huge hole where we were not capturing any info for missing books and it became a problem for OBB.
+Thus the problem needed to be solved
+Options on the table: 
+- clean up and continue the existing 'normal' mindset where you have some properly grouped tables for data
+-- pro: it's standard, every one would understand it
+-- con: it's just a temp patch as this is the same way that every prevous attempt was solved
+-- con: still have that alter table problem
+-- con: source/stamp feature not easy to solve
+- go balls to the wall and blow everything apart
+-- pro: flexable and almost future proof
+-- pro: lends it's self to source/stamp method
+-- con: untested, would it work? 
+As you can guess, because I'm talking here, we didn't go with the 'normal method'
+
+So lets look at an example of the old fat row idea that we've moved away from.
+
+            id: 314091
+1         isbn: 9780553213119
+2        title: Moby-Dick (Bantam Classic)
+3       author: Melville, Herman
+4    publisher: Bantam Classics
+5    copyright: 1981
+6      binding: MASS MARKET
+7   list_price: 0.00
+8      section: Literature-A to Z
+9  sq1_section: LIT - LITERATURE
+
+Here we have 9 unique points of data that all describe the same product. 
+
+So lets dive in to the quickie normalization discussion:
+
+1NF: no repeats
+- old: defined binding as a value for every row
+-- pro: great for selects
+-- con: bad for disk useage
+- new: new table for binding
+-- pro: less info on disk, easy to index
+-- con: we now have a join
+
+
+Second normal form (2NF)   E.F. Codd (1971)[13] No non-prime attribute in the table is functionally dependent on a part (proper subset) of a candidate key
+Third normal form (3NF) E.F. Codd (1971)[14]; see +also Carlo Zaniolo's equivalent but differently-expressed definition (1982)[15]  Every non-prime attribute is non-transitively dependent on every key of the table
+Boyce-Codd normal form (BCNF) Raymond F. Boyce and E.F. Codd (1974)[16] Every non-trivial functional dependency in the table is a dependency on a superkey
+Fourth normal form (4NF)   Ronald Fagin (1977)[17] Every non-trivial multivalued dependency in the table is a dependency on a superkey
+Fifth normal form (5NF) Ronald Fagin (1979)[18] Every non-trivial join dependency in the table is implied by the superkeys of the table
+Domain/key normal form (DKNF) Ronald Fagin (1981)[19] Every constraint on the table is a logical consequence of the table's domain constraints and key constraints
+Sixth normal form (6NF) C.J. Date, Hugh Darwen, and Nikos Lorentzos (2002)[5] Table features no non-trivial join dependencies at all (with reference to generalized join operator)
+
+
+
+
+
+--------
+
+
+
+
 - wrong title (sorry)
 - this is ETL storage, just to be for-warned.
 - problem
