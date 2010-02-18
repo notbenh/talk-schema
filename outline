@@ -1,5 +1,6 @@
 overnormalization
-lets back up and set up a foundation
+yes this is going to be the developers introduction to normalization, I went to far and found a lot of good in crossing the line of sanity.
+but I'm getting ahead of my self, lets back up and set up a foundation
 like most places over time, your schemas become a mess.
 we had many generations of many diffrent attempts at cleaning things up, but there was still cruft.
 Most of the cruft was due to the tables being so large and live so you can't alter them.
@@ -23,31 +24,56 @@ As you can guess, because I'm talking here, we didn't go with the 'normal method
 
 So lets look at an example of the old fat row idea that we've moved away from.
 
-            id: 314091
-1         isbn: 9780553213119
-2        title: Moby-Dick (Bantam Classic)
-3       author: Melville, Herman
-4    publisher: Bantam Classics
-5    copyright: 1981
-6      binding: MASS MARKET
-7   list_price: 0.00
-8      section: Literature-A to Z
-9  sq1_section: LIT - LITERATURE
+http://www.powells.com/biblio/9780596100926
 
-Here we have 9 unique points of data that all describe the same product. 
 
+ISBN: 9780596100926
+Title: Perl Testing: A Developer's Notebook
+Author: Ian Langworth and Chromatic
+Author: Langworth, Ian
+Author: Chromatic
+Publisher: O'Reilly Media
+Subject: Programming Languages - CGI, Javascript, Perl, VBScript
+Subject: Perl (computer program language)
+Subject: Programming Languages - Perl
+Subject: Programming - Quality Assurance & Testing
+Subject: Software Development & Engineering - Quality
+Copyright: 2005
+Publication Date: July 2005
+Binding: Hardcover
+Language: English
+Illustrations: Y
+Pages: 180
+Dimensions: 9.22x7.10x.55 in. .78 lbs.
 So lets dive in to the quickie normalization discussion:
 
-1NF: no repeats
-- old: defined binding as a value for every row
--- pro: great for selects
--- con: bad for disk useage
-- new: new table for binding
--- pro: less info on disk, easy to index
--- con: we now have a join
+1NF: no repeating groups
 
+Author & Subject are many to one relationships. So lets pull them to there own tables.
 
-Second normal form (2NF)   E.F. Codd (1971)[13] No non-prime attribute in the table is functionally dependent on a part (proper subset) of a candidate key
+Author: Ian Langworth and Chromatic
+Author: Langworth, Ian
+Author: Chromatic
+
+Subject: Programming Languages - CGI, Javascript, Perl, VBScript
+Subject: Perl (computer program language)
+Subject: Programming Languages - Perl
+Subject: Programming - Quality Assurance & Testing
+Subject: Software Development & Engineering - Quality
+
+ISBN: 9780596100926
+Subtitle: A Developer's Notebook
+Publisher: O'Reilly Media
+Copyright: 2005
+Publication Date: July 2005
+Binding: Hardcover
+Language: English
+Illustrations: Y
+Pages: 180
+Dimensions: 9.22x7.10x.55 in. .78 lbs.
+
+2NF:
+1971)[13] No non-prime attribute in the table is functionally dependent on a part (proper subset) of a candidate key
 Third normal form (3NF) E.F. Codd (1971)[14]; see +also Carlo Zaniolo's equivalent but differently-expressed definition (1982)[15]  Every non-prime attribute is non-transitively dependent on every key of the table
 Boyce-Codd normal form (BCNF) Raymond F. Boyce and E.F. Codd (1974)[16] Every non-trivial functional dependency in the table is a dependency on a superkey
 Fourth normal form (4NF)   Ronald Fagin (1977)[17] Every non-trivial multivalued dependency in the table is a dependency on a superkey
