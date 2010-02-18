@@ -116,7 +116,7 @@ HEADER:: safe solution
 %%%%EM:+%%%% safe = understandable
 
 ----
-%%%%EM:-%%%% safe = same problems
+%%%%EM:-%%%% safe = problems
 
 ----
 HEADER::
@@ -156,7 +156,6 @@ So lets dive in to the quickie normalization discussion:
 FOOTER:: no repeating groups
 1NF
 ----
-FOOTER::
 %%%%PRE:
 Author: Ian Langworth and Chromatic
 Author: Langworth, Ian
@@ -172,10 +171,14 @@ Subject: Software Development &amp; Engineering - Quality
 Author &amp; Subject are many to one relationships. So lets pull them to there own tables.
 -->
 ----
+FOOTER:: build dependant pairs
 2NF
-:
+----
+%%%%PRE:
 ISBN: 9780596100926
-Subtitle: A Developer's Notebook
+Title: Perl Testing: A Developer's Notebook
+
+ISBN: 9780596100926
 Publisher: O'Reilly Media
 Copyright: 2005
 Publication Date: July 2005
@@ -184,8 +187,24 @@ Language: English
 Illustrations: Y
 Pages: 180
 Dimensions: 9.22x7.10x.55 in. .78 lbs.
+%%%%
+----
+FOOTER:: build dependant pairs
+3NF
+----
+%%%%PRE:
+ISBN: 9780596100926
+Publisher: O'Reilly Media
+Copyright: 2005
+Publication Date: July 2005
+Binding: Hardcover
+Language: English
+Illustrations: Y
+Pages: 180
+Dimensions: 9.22x7.10x.55 in. .78 lbs.
+%%%%
+----
 
-1971)[13] No non-prime attribute in the table is functionally dependent on a part (proper subset) of a candidate key
 Third normal form (3NF) E.F. Codd (1971)[14]; see +also Carlo Zaniolo's equivalent but differently-expressed definition (1982)[15]  Every non-prime attribute is non-transitively dependent on every key of the table
 Boyce-Codd normal form (BCNF) Raymond F. Boyce and E.F. Codd (1974)[16] Every non-trivial functional dependency in the table is a dependency on a superkey
 Fourth normal form (4NF)   Ronald Fagin (1977)[17] Every non-trivial multivalued dependency in the table is a dependency on a superkey
