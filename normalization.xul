@@ -189,10 +189,27 @@ Pages: 180
 Dimensions: 9.22x7.10x.55 in. .78 lbs.
 %%%%
 ----
-FOOTER:: build dependant pairs
+FOOTER:: all cols describe the key
 3NF
 ----
+wait, this is hard
+<!-- then I started thinking about other options -->
+----
+HEADER::solution?
+FOOTER::why stop here?
+risky bet
+----
+try KV
+<!-- so I started thinking about couchDB and the like, would a kv store work for what I wanted?
+-->
+----
+think KV
+----
+
 %%%%PRE:
+ISBN: 9780596100926
+Title: Perl Testing: A Developer's Notebook
+
 ISBN: 9780596100926
 Publisher: O'Reilly Media
 Copyright: 2005
@@ -204,28 +221,12 @@ Pages: 180
 Dimensions: 9.22x7.10x.55 in. .78 lbs.
 %%%%
 ----
-
-Third normal form (3NF) E.F. Codd (1971)[14]; see +also Carlo Zaniolo's equivalent but differently-expressed definition (1982)[15]  Every non-prime attribute is non-transitively dependent on every key of the table
-Boyce-Codd normal form (BCNF) Raymond F. Boyce and E.F. Codd (1974)[16] Every non-trivial functional dependency in the table is a dependency on a superkey
-Fourth normal form (4NF)   Ronald Fagin (1977)[17] Every non-trivial multivalued dependency in the table is a dependency on a superkey
-Fifth normal form (5NF) Ronald Fagin (1979)[18] Every non-trivial join dependency in the table is implied by the superkeys of the table
-Domain/key normal form (DKNF) Ronald Fagin (1981)[19] Every constraint on the table is a logical consequence of the table's domain constraints and key constraints
-Sixth normal form (6NF) C.J. Date, Hugh Darwen, and Nikos Lorentzos (2002)[5] Table features no non-trivial join dependencies at all (with reference to generalized join operator)
-
-
+HEADER:: risky bet
+FOOTER::
+%%%%EM:+%%%% flexable
 
 ----
-HEADER::solution?
-risky bet
-----
-HEADER:: safe solution
-%%%%EM:+%%%% safe = standard
-
-----
-%%%%EM:+%%%% safe = tools
-
-----
-%%%%EM:+%%%% safe = understandable
+%%%%EM:+%%%% sorce &amp; stamp
 
 ----
 %%%%EM:-%%%% safe = same problems
@@ -244,6 +245,13 @@ Options on the table:
 As you can guess, because I'm talking here, we didn't go with the 'normal method'
 
 
+
+
+Boyce-Codd normal form (BCNF) Raymond F. Boyce and E.F. Codd (1974)[16] Every non-trivial functional dependency in the table is a dependency on a superkey
+Fourth normal form (4NF)   Ronald Fagin (1977)[17] Every non-trivial multivalued dependency in the table is a dependency on a superkey
+Fifth normal form (5NF) Ronald Fagin (1979)[18] Every non-trivial join dependency in the table is implied by the superkeys of the table
+Domain/key normal form (DKNF) Ronald Fagin (1981)[19] Every constraint on the table is a logical consequence of the table's domain constraints and key constraints
+Sixth normal form (6NF) C.J. Date, Hugh Darwen, and Nikos Lorentzos (2002)[5] Table features no non-trivial join dependencies at all (with reference to generalized join operator)
 
 
 
